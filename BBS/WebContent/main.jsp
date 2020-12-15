@@ -71,7 +71,7 @@
                <div class="container">
                   <h1>웹사이트 소개</h1>
                      <p>이 웹사이트는 개인공간으로 부트스트랩을 사용하여 만들었습니다. 디자인 템플릿 역시 부트스트랩입니다.</p>
-                       <p><a class="btn btn-primary btn-pull" href="#" role="button">자세히 알아보기</a></p>
+                       <p><a class="btn btn-primary btn-pull" href="bbs.jsp" role="button">자세히 알아보기</a></p>
                </div>
              </div>
           </div>
@@ -101,6 +101,7 @@
               </a>
             </div>
           </div>
+                  <h1>&nbsp; </h1>
           <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
           <script src="js/bootstrap.js"></script>
 
