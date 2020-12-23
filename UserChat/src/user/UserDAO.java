@@ -33,11 +33,11 @@ public class UserDAO {
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				if(rs.getString("userPassword").equals(userPassword)) {
-					return 1;
+					return 1; //로그인 성공
 				}
-				return 2;
+				return 2; // 비밀번호 틀림
  			} else {
- 				return 0;
+ 				return 0; // 존재x
  			}
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -84,8 +84,7 @@ public class UserDAO {
 	public int register(String userID, String userPassword, String userName, String userAge, String userGender, String userEmail, String userProfile) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String SQL = "INSERT INTO USER VALUES(?, ?, ?, ?, ?, ?, ?)";;
+		String SQL = "INSERT INTO USER VALUES (?, ?, ?, ?, ?, ?, ?)";
 		try {
 			conn = dataSource.getConnection();
 			pstmt = conn.prepareStatement(SQL);
@@ -96,25 +95,19 @@ public class UserDAO {
 			pstmt.setString(5, userGender);
 			pstmt.setString(6, userEmail);
 			pstmt.setString(7, userProfile);
-			rs = pstmt.executeQuery();
-			if (rs.next() || userID.equals("")) {
-				return 0;
- 			}else {
- 				return 1;
- 			}
+	        return pstmt.executeUpdate();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			try {
-				if(rs != null) rs.close();
 				if(pstmt != null) pstmt.close();
 				if(conn != null) conn.close();
 			}catch (Exception e) {
 				e.printStackTrace();
+			}
 		}
-	}
-      return -1;
-	}		
+			return -1; 
+		}		
 	
 	
 }

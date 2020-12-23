@@ -8,9 +8,7 @@ public class UserDTO {
 	 int userAge;
 	 String userGender;
 	 String userEmail;
-	 String userProfile;
-	 
-	 
+
 	public String getUserID() {
 		return userID;
 	}
@@ -47,12 +45,5 @@ public class UserDTO {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-	public String getUserProfile() {
-		return userProfile;
-	}
-	public void setUserProfile(String userProfile) {
-		this.userProfile = userProfile;
-	}
-	 
-	 
+
 }
