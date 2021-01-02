@@ -66,7 +66,8 @@
                  </div>
                   <div class="collaspe navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class ="nav navbar-nav">
-                  <li class="active"><a href="index.jsp">메인</a></li>
+                  <li><a href="index.jsp">메인</a></li>
+                  <li><a href="find.jsp">친구찾기</a></li>
                   </ul>
                   <%
                        if(userID == null){
@@ -77,8 +78,8 @@
                              data-toggle="dropdown" role="button" aria-haspopup="true"
                                aria-expanded="false">접속하기<span class="caret"></span> </a>
                                <ul class="dropdown-menu">
-                              <li><a href="logoutAction.jsp">로그인</a></li>
-                               <li><a href="logoutAction.jsp">회원가입</a></li>
+                              <li><a href="login.jsp">로그인</a></li>
+                               <li class="active"><a href="join.jsp">회원가입</a></li>
                              </ul>
       
                    </ul>
