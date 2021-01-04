@@ -64,7 +64,7 @@
              </div>
              <div class="collapse navbar-collapse" id="bs-example-navbar-collaspe-1">
                <ul class="nav navbar-nav">
-                 <li class="active"><a href="index.jsp">메인</a>
+                 <li><a href="index.jsp">메인</a>
                   <li><a href="find.jsp">친구찾기</a></li>
                   </ul>
                   <%
