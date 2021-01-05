@@ -2,6 +2,12 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+          <%
+                String userID = null;
+                if (session.getAttribute("userID") != null) {
+                	userID = (String) session.getAttribute("userID");
+                }
+          %>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, inital-scale=1">
@@ -10,14 +16,34 @@
   <title>JSP Ajax 실시간 회원제 채팅 서비스</title>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
+  <script type="text/javascript">
+    function getUnread() {
+    	$.ajax({
+    		 type: "POST",
+    		 url: "./chatUnread",
+    		 data: {
+    			 userID: encodeURIComponent('<%= userID %>'),
+    			 },
+    		 success: function(result) {
+    			 if(result >= 1) {
+    				 showUnread(result);
+    			 } else {
+    				 showUnread(' ');
+    			 }
+    		 }
+    	});
+    }
+    function getInfiniteUnread () {
+    	setInterval(function() {
+    		getUnread();
+    	}, 4000);
+    }
+    function showUnread(result) {
+    	$('#unread').html(result);
+    }
+  </script>
 </head>
 <body>
-          <%
-                String userID = null;
-                if (session.getAttribute("userID") != null) {
-                	userID = (String) session.getAttribute("userID");
-                }
-          %>
            <nav class="navbar navbar-default">
              <div class="navbar-header">
                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collaspe-1" aria-expanded="false">
@@ -31,6 +57,7 @@
                <ul class="nav navbar-nav">
                  <li class="active"><a href="index.jsp">메인</a>
                   <li><a href="find.jsp">친구찾기</a></li>
+                  <li><a href="box.jsp">메세지함<span id="unread" class="label label-info"></span></a></li>
                   </ul>
                   <%
                        if(userID == null){
@@ -103,6 +130,17 @@
                <script>
                   $('#messageModal').modal("show");
                </script>
+               <%
+                   if(userID != null) {
+               %>
+                 <script type="text/javascript">
+                   $(document).ready(function() {
+                	   getInfiniteUnread();
+                   });
+                 </script>
+                 <%
+                   }
+                 %>
                <% 
                     session.removeAttribute("messageContent");
                     session.removeAttribute("messageType");
