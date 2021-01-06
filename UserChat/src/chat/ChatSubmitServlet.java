@@ -24,13 +24,14 @@ public class ChatSubmitServlet extends HttpServlet {
 		if(fromID == null || fromID.equals("") || toID == null || toID.equals("")
 				|| chatContent == null || chatContent.equals("")) {
 			response.getWriter().write("0");
-		}else {
+		} else if(fromID.equals(toID)) {
+			response.getWriter().write("-1");
+		} else {
 			fromID = URLDecoder.decode(fromID, "UTF-8");
 			toID = URLDecoder.decode(toID, "UTF-8");
 			chatContent = URLDecoder.decode(chatContent, "UTF-8");
 			response.getWriter().write(new ChatDAO().submit(fromID, toID, chatContent) + "");
-		}
-		
+		}		
 	}
 
 }

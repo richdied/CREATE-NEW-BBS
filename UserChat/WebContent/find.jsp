@@ -16,7 +16,7 @@
           %>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, inital-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/custom.css?ver=1">
   <title>JSP Ajax 실시간 회원제 채팅 서비스</title>
@@ -58,6 +58,30 @@
     function failFriend() {
     	$('#friendResult').html(' ');
     }
+    function getUnread() {
+    	$.ajax({
+    		 type: "POST",
+    		 url: "./chatUnread",
+    		 data: {
+    			 userID: encodeURIComponent('<%= userID %>'),
+    			 },
+    		 success: function(result) {
+    			 if(result >= 1) {
+    				 showUnread(result);
+    			 } else {
+    				 showUnread('');
+    			 }
+    		 }
+    	});
+    }
+    function getInfiniteUnread () {
+    	setInterval(function() {
+    		getUnread();
+    	}, 4000);
+    }
+    function showUnread(result) {
+    	$('#unread').html(result);
+    }
   </script>
 </head>
 <body>
@@ -74,6 +98,7 @@
                <ul class="nav navbar-nav">
                  <li><a href="index.jsp">메인</a>
                   <li class="active"><a href="find.jsp">친구찾기</a></li>
+                  <li><a href="box.jsp">메세지함<span id="unread" class="label label-info"></span></a></li>
                   </ul>
                                 <ul class="nav navbar-nav navbar-right">
                        <li class="dropdown">
@@ -174,5 +199,17 @@
                        </div>
                     </div>
                </div>
+               <%
+                   if(userID != null) {
+               %>
+                 <script type="text/javascript">
+                   $(document).ready(function() {
+                	   getUnread();
+                	   getInfiniteUnread();
+                   });
+                 </script>
+                 <%
+                   }
+                 %>
 </body>
 </html>
