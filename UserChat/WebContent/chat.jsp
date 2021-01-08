@@ -174,6 +174,7 @@
                             data-toggle="dropdown" role="button" aria-haspopup="true"
                             aria-expanded="false">회원관리<span class="caret"></span></a>
                              <ul class="dropdown-menu">
+                             <li><a href="update.jsp">회원정보수정</a></li>    
                               <li><a href="logoutAction.jsp">로그아웃</a></li>          
                              </ul>
                             </li>
@@ -258,7 +259,7 @@
                <script>
                   $('#messageModal').modal("show");
                </script>
-               <% 
+               <%
                     session.removeAttribute("messageContent");
                     session.removeAttribute("messageType");
                     }
