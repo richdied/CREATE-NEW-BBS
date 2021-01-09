@@ -20,7 +20,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/custom.css?ver=1">
+  <link rel="stylesheet" href="css/custom.css">
   <title>JSP Ajax 실시간 회원제 채팅 서비스</title>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
@@ -83,6 +83,7 @@
                             aria-expanded="false">회원관리<span class="caret"></span></a>
                              <ul class="dropdown-menu">
                              <li class="active"><a href="update.jsp">회원정보수정</a></li>    
+                             <li><a href="profileUpdate.jsp">프로필 수정</a></li>   
                               <li><a href="logoutAction.jsp">로그아웃</a></li>          
                              </ul>
                             </li>
@@ -91,7 +92,7 @@
                </nav>   
                               <div class="container">
                  <form method="post" action="./userUpdate">
-                   <table class="table table-bordered table-hover" style="text-align: center: border: 1px solid #dddddd">
+                   <table class="table table-bordered table-hover" style="text-align: center; border: 1px solid #dddddd">
                      <thead>
                        <tr>
                          <th colspan="2"><h4>회원정보수정 양식</h4></th>

@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/custom.css?ver=1">
+  <link rel="stylesheet" href="css/custom.css">
   <title>JSP Ajax 실시간 회원제 채팅 서비스</title>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
@@ -88,7 +88,7 @@
                </nav>    
                <div class="container">
                  <form method="post" action="./userRegister">
-                   <table class="table table-bordered table-hover" style="text-align: center: border: 1px solid #dddddd">
+                   <table class="table table-bordered table-hover" style="text-align: center; border: 1px solid #dddddd">
                      <thead>
                        <tr>
                          <th colspan="3"><h4>회원 등록 양식</h4></th>
@@ -121,10 +121,10 @@
                          <td colspan="2">
                              <div class="form-group"style="text-align: center; margin: 0 auto:">
                                 <div class="btn-group" data-toggle="buttons">
-                                     <label class="btn btn-primary active">
+                                     <label class="btn btn-primary">
                                          <input type="radio" name="userGender" autocomplete="off" value="남자" checked>남자
                                      </label>
-                                          <label class="btn btn-primary ">
+                                          <label class="btn btn-primary active">
                                              <input type="radio" name="userGender" autocomplete="off" value="여자" checked>여자
                                          </label>
                                 </div>

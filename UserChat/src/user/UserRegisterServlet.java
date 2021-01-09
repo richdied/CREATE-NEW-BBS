@@ -29,25 +29,25 @@ public class UserRegisterServlet extends HttpServlet {
 			request.getSession().setAttribute("messageType", "오류 메시지");
 		    request.getSession().setAttribute("messageContent", "모든 내용을 입력하시오.");
 		    response.sendRedirect("join.jsp");
-		    return;	    
-	   }
+		    return;
+	   }	
 		if(!userPassword1.equals(userPassword2)) {
 			request.getSession().setAttribute("messageType", "오류메시지");
 		    request.getSession().setAttribute("messageContent", "비밀번호가 서로 다릅니다.");
 		    response.sendRedirect("join.jsp");
 		    return;	    
 		}
-        int result = new UserDAO().register(userID, userPassword1, userName, userAge, userGender, userEmail, userProfile);
-        if(result ==1) {
+        int result = new UserDAO().register(userID, userPassword1, userName, userAge, userGender, userEmail, "");
+         if(result ==1) {
         	request.getSession().setAttribute("userID", userID);
 			request.getSession().setAttribute("messageType", "성공메시지");
 		    request.getSession().setAttribute("messageContent", "회원가입에 성공했습니다.");
-		    response.sendRedirect("index.jsp");
-		    return;	    	
+		    response.sendRedirect("index.jsp");	
         } else {
     		request.getSession().setAttribute("messageType", "오류메시지");
 		    request.getSession().setAttribute("messageContent", "이미 존재하는 회원입니다.");
 		    response.sendRedirect("join.jsp");
+
         }
 	}
 }
