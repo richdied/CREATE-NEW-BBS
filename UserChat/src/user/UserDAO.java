@@ -192,4 +192,34 @@ public class UserDAO {
 		}
 			return -1; 
 		}		
+	
+	public String getProfile(String userID) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String SQL = "SELECT userProfile FROM USER WHERE userID = ?";
+		try {
+			conn = dataSource.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1,  userID);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				if(rs.getString("userProfile").equals("")) {
+					return "http://localhost:8080/UserChat/images/icon.png";
+				}
+				return "http://localhost:8080/UserChat/upload/" + rs.getString("userProfile");
+ 			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}catch (Exception e) {
+				e.printStackTrace();
+		}
+	}
+		return "http://localhost:8080/UserChat/images/icon.png";
+	}		
 }
