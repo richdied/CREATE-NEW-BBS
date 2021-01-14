@@ -125,5 +125,84 @@ public class BoardDAO {
 		}
 	}
       return boardList;
-	}		
+	}
+	
+	public int hit(String boardID) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String SQL = "UPDATE BOARD SET boardHit = boardHit + 1 WHERE boardID = ?";
+		try {
+			conn = dataSource.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1,  boardID);
+	        return pstmt.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+			return -1; 
+		}		
+	
+	public String getFile(String boardID) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String SQL = "SELECT boardFile FROM BOARD WHERE boardID = ?";
+		try {
+			conn = dataSource.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1,  boardID);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return rs.getString("boardFile");
+ 			}
+			return "";
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}catch (Exception e) {
+				e.printStackTrace();
+		}
+	}
+      return "";	
+	}
+	
+	public String getRealFile(String boardID) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String SQL = "SELECT boardRealFile FROM BOARD WHERE boardID = ?";
+		try {
+			conn = dataSource.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1,  boardID);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return rs.getString("boardRealFile");
+ 			}
+			return "";
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}catch (Exception e) {
+				e.printStackTrace();
+		}
+	}
+      return "";	
+	}
+	
 }
