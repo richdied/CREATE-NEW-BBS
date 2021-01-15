@@ -205,4 +205,29 @@ public class BoardDAO {
       return "";	
 	}
 	
+	public int update(String boardID, String boardTitle, String boardContent, String boardFile, String boardRealFile) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String SQL = "UPDATE BOARD SET boardTitle = ?, boardContent = ?, boardFile = ?, boardRealFile = ? WHERE boardID = ?";
+		try {
+			conn = dataSource.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, boardTitle);
+			pstmt.setString(2, boardContent);
+			pstmt.setString(3, boardFile);
+		    pstmt.setString(4, boardRealFile);;
+		    pstmt.setInt(5, Integer.parseInt(boardID));
+	        return pstmt.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+			return -1; 
+		}		
 }
