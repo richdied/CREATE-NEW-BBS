@@ -19,6 +19,12 @@
                 if (request.getParameter("boardID") !=null) {
                 	boardID= (String) request.getParameter("boardID");
                 }
+                if(boardID == null || boardID.equals("")) {
+                	session.setAttribute("messageType", "오류 메시지");
+                	session.setAttribute("messageContent", "게시물을 선택해주세요.");
+                	response.sendRedirect("index.jsp");
+                	return;
+                }
                 BoardDAO boardDAO = new BoardDAO();
                 BoardDTO board = boardDAO.getBoard(boardID);
                 boardDAO.hit(boardID);
