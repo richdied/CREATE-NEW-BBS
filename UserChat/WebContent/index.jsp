@@ -99,8 +99,13 @@
              <div class="jumbotron">
                <div class="container">
                   <h1>웹사이트 소개</h1>
-                     <p>실시간 채팅 서비스 사이트입니다. 아래쪽의 회원가입 바로가기 버튼을 눌러 회원가입을 해주신 후
-                     친구찾기로 상대방을 찾아 이용해주세요. 건의사항은 자유게시판을 이용해주시면 감사하겠습니다. </p>
+                     <p><br>실시간 채팅 서비스 사이트입니다.
+                     <br>
+                     <br>아래쪽의 회원가입 바로가기 버튼을 눌러 회원가입을 해주신 후 친구찾기로 상대방을 찾아 이용해주세요. 
+                     <br>
+                     <br> 저와 대화를 원하시는 분은 친구찾기에서 이순신을 검색해주세요.
+                     <br>
+                    <br> 건의사항은 자유게시판을 이용해주시면 감사하겠습니다. </p>
                        <p><a class="btn btn-primary btn-pull" href="join.jsp" role="button">회원가입 바로가기</a></p>
                </div>
              </div>
@@ -108,27 +113,13 @@
           <div class="container">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel"></li>
               </ol>
               <div class="carousel-inner">
                 <div class="item active">
-                  <img src="images/1.png">
-                </div>
-                 <div class="item">
-                  <img src="images/2.png">
-                </div>
-                <div class="item">
-                  <img src="images/3.png">
+                  <img src="images/4.png">
                 </div>
               </div>
-              <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-              </a>
-                  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-              </a>
             </div>
           </div>
                   <h1>&nbsp; </h1>
@@ -140,7 +131,6 @@
                     String messageType = null;
                     if(session.getAttribute("messageType") != null) {
                     	messageType = (String) session.getAttribute("messageType");
-
                     }
                     if (messageContent != null) {
                %>
