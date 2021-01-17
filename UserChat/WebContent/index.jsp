@@ -105,7 +105,7 @@
                      <br>
                      <br> 저와 대화를 원하시는 분은 친구찾기에서 이순신을 검색해주세요.
                      <br>
-                    <br> 건의사항은 자유게시판을 이용해주시면 감사하겠습니다. </p>
+                    <br> 건의사항은 자유게시판을 이용해주시면 감사하겠습니다.</p>
                        <p><a class="btn btn-primary btn-pull" href="join.jsp" role="button">회원가입 바로가기</a></p>
                </div>
              </div>
