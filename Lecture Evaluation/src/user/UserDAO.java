@@ -9,7 +9,7 @@ import util.DatabaseUtil;
 public class UserDAO {
 
 	public int login(String userID, String userPassword) {
-		String SQL = "SELECT userPassword FROM USER WHERE 	userID = ?";
+		String SQL = "SELECT userPassword FROM USER WHERE userID = ?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
