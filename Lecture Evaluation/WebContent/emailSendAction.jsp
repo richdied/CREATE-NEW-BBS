@@ -104,9 +104,18 @@
               회원 관리
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdown">
+<%
+     if(userID == null) {
+%>            
               <a class="dropdown-item" href="userLogin.jsp">로그인</a>
               <a class="dropdown-item" href="userJoin.jsp">회원가입</a>
+<%
+     } else {
+%>                    
               <a class="dropdown-item" href="userLogout.jsp">로그아웃</a>
+<%
+     }
+%>              
             </div>
           </li>
         </ul>
@@ -122,7 +131,7 @@
          </div>
       </section>
       <footer class="bg-dark mt-4 p-5 text-center" style="color:#FFFFFF;">
-        Copyright &copy; 2018나동빈All Rights Reserved.
+        Copyright &copy; 2021황지후All Rights Reserved.
       </footer>
       <script src="./js/jquery.min.js"></script>
       <script src="./js/pooper.js"></script>
