@@ -156,15 +156,15 @@
          </section>
          <ul class="pagination justify-content-center mt-3">
            <li class="page-item">
-           <%
-               if(pageNumber <=0) {
+           <% 
+               if(pageNumber <= 0) {
             %>
                <a class="page-link disabled">이전</a>
            <%  	   
                } else {
            %>
-               <a class="page-link" href="./index.jsp?lectureDivide=<%= URLEncoder.encode(lectureDivide, "UTF-8")%>&searchType=
-               <%= URLEncoder.encode(searchType, "UTF-8" ) %>&search=<%= URLEncoder.encode(search, "UTF-8") %>&pageNumber=
+               <a class="page-link" href="./index.jsp?lectureDivide=<%= URLEncoder.encode(lectureDivide, "UTF-8") %>&searchType=
+               <%= URLEncoder.encode(searchType, "UTF-8") %>&search=<%= URLEncoder.encode(search, "UTF-8") %>&pageNumber=
                <%= pageNumber - 1 %>">이전</a>
            <%
                }
@@ -178,7 +178,7 @@
            <%  	   
                } else {
            %>
-               <a class="page-link" href="./index.jsp?lectureDivide=<%= URLEncoder.encode(lectureDivide, "UTF-8")%>&searchType=
+               <a class="page-link" href="./index.jsp?lectureDivide=<%= URLEncoder.encode(lectureDivide, "UTF-8") %>&searchType=
                <%= URLEncoder.encode(searchType, "UTF-8" ) %>&search=<%= URLEncoder.encode(search, "UTF-8") %>&pageNumber=
                <%= pageNumber + 1 %>">다음</a>
          <%
